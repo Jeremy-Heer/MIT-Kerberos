@@ -1,48 +1,53 @@
-# MIT-Kerberos
+# MIT-Kerberos + LDAP
 
 ## Additinal clients
 
-configure or disable SELinux
-configure or disable firewall?
+1. configure or disable SELinux
+2. configure or disable firewall?
+3. update /etc/hosts
+4. dnf install krb5-workstation
+5. dnf install sssd-tools
+6. set /etc/sssd/sssd.conf
+7. set /etc/krb5.conf
+8. authselect sssd
+9. echo "session optional pam_oddjob_mkhomedir.so skel=/etc/skel/ umask=0022" >> /etc/pam.d/system-auth
+10. systemctl enable --now oddjobd
+11. copy ldap public cert to /etc/openldap/certs/
+12. Also cert refrenced in sssd.conf
+    * /etc/pki/tls/cacert.crt
 
-update /etc/hosts
-dnf install krb5-workstation
-dnf install sssd-tools
+13. from kadmin server
 
-set /etc/sssd/sssd.conf
-set /etc/krb5.conf
+`kadmin`
 
-authselect sssd
+`kadmin: addprinc random host/linux.heer.net`
 
-systemctl enable --now oddjobd
-echo "session optional pam_oddjob_mkhomedir.so skel=/etc/skel/ umask=0022" >> /etc/pam.d/system-auth
-systemctl enable --now oddjobd
+`kadmin: ktadd -k /tmp/krb5.keytab host/linux3.heer.net`
 
-copy ldap public cert to /etc/openldap/certs/
-Also cert refrenced in sssd.conf
-/etc/pki/tls/cacert.crt
+14. copy /tmp/krb5.keytab to client server into /etc
 
-from kadmin server:
-kadmin
-kadmin: addprinc random host/linux.heer.net
-kadmin: ktadd -k /tmp/krb5.keytab host/linux3.heer.net
+### Test with LDAP first
+1. Temporarly adjust sssd.conf
+    `auth_provider = krb5`
 
-copy /tmp/krb5.keytab to clien server into /etc
+    to
 
-Temporarly adjust sssd.conf
-from
-auth_provider = krb5
-to
-auth_provider = ldap
+    `auth_provider = ldap`
 
-verify LDAP first
-
-ssh deamon and client
+#### SSH
+- Server Daemon
 /etc/ssh/sshd_config
-GSSAPIAuthentication yes
-GSSAPICleanupCredentials yes
 
+`GSSAPIAuthentication yes`
+
+`GSSAPICleanupCredentials yes`
+
+`systemctl restart sshd`
+
+- Client
 /etc/ssh/ssh_config
-GSSAPIAuthentication yes
-GSSAPIDelegateCredentials yes
-systemctl restart sshd
+
+`GSSAPIAuthentication yes`
+
+`GSSAPIDelegateCredentials yes`
+
