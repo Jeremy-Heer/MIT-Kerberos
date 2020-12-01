@@ -34,20 +34,8 @@
 
     `auth_provider = ldap`
 
-#### SSH
-- Server Daemon
-/etc/ssh/sshd_config
+### Other links
 
-`GSSAPIAuthentication yes`
+[SSH](docs/ssh.md)
 
-`GSSAPICleanupCredentials yes`
-
-`systemctl restart sshd`
-
-- Client
-/etc/ssh/ssh_config
-
-`GSSAPIAuthentication yes`
-
-`GSSAPIDelegateCredentials yes`
 
