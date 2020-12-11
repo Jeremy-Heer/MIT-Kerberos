@@ -9,6 +9,9 @@
     * update the realm data
 1. Edit the /var/kerberos/krb5kdc/kdc.conf
     * update the realm name in the [realms] section
+
+## Master KDC
+1. Complte the Basic KDC setup above
 1. Create the KDC database
     * `kdb5_util create -s -r KRBTEST.NET`
     * Enter a database master key when prompted
@@ -17,3 +20,7 @@
     * `systemctl enable kadmin`
     * `systemctl start krb5kdc`
     * `systemctl start kadmin`
+
+## Replica KDCs
+1. Complte the Basic KDC setup above
+1. 

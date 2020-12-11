@@ -1,5 +1,7 @@
-#### SSH
-- Server Daemon
+# SSH
+
+## SSH Server Daemon
+
 /etc/ssh/sshd_config
 
 `GSSAPIAuthentication yes`
@@ -8,9 +10,11 @@
 
 `systemctl restart sshd`
 
-- Client
+## SSH Client
+
 /etc/ssh/ssh_config
 
 `GSSAPIAuthentication yes`
 
 `GSSAPIDelegateCredentials yes`
+

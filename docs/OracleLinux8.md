@@ -1,6 +1,6 @@
 ## Basic OS setup
 1. Will be using [Oracle Virtual Box](https://www.virtualbox.org/)
-1. Will be using [CentOS 8.2](https://www.centos.org/)
+1. Will be using [Oracle Linux 8.3](https://www.oracle.com/linux/)
 1. Configure and start a new VM using the above .iso
     * Choose a network option that will have access to the Internet
 1. Right Ctrl will release the mouse during the OS install
@@ -18,8 +18,7 @@
 1. Eject the DVD and reboot
 1. Optional: Add guest additions
     - as root: `dnf update`
-    - As root: `dnf install epel-release`
-    - As root: `dnf install gcc make perl kernel-devel kernel-headers bzip2 dkms`
+    - As root: `dnf install perl make bzip2 gzip unzip kernel-uek-devel-$(uname -r) tar`
     - reboot
     - Devices / Insert Guest Additions CD image
     - More info [HERE](https://www.tecmint.com/install-virtualbox-guest-additions-on-centos-8/)
@@ -38,3 +37,4 @@
     - As root: `firewall-cmd --add-service=kadmin --permanent`
     - As root: `systemctl restart firewalld.service`
     - As root: `systemctl enable firewalld.service`
+1. The /etc/hosts should include entrys for each client, KDC Master and KDC replicas
