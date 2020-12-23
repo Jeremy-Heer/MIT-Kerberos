@@ -1,0 +1,88 @@
+dn: dc=example,dc=com
+objectClass: domain
+objectClass: nisDomainObject
+objectClass: top
+dc: example
+nisDomain: example.com
+
+dn: ou=People,dc=example,dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: People
+
+dn: ou=Groups,dc=example,dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: Groups
+
+dn: ou=profile,dc=example,dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: profile
+
+
+dn: uid=sholmes,ou=People,dc=example,dc=com
+objectClass: organizationalPerson
+objectClass: person
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: top
+cn: Sherlock Holmes
+gidNumber: 1000
+homeDirectory: /home/sholmes
+sn: Holmes
+uid: sholmes
+uidNumber: 9999
+gecos: Sherlock Holmes
+loginShell: /bin/bash
+shadowExpire: -1
+shadowFlag: 0
+shadowInactive: -1
+shadowLastChange: 0
+shadowMax: 99999
+shadowMin: 5
+shadowWarning: 7
+userPassword: secret
+
+dn: cn=Users,ou=Groups,dc=example,dc=com
+objectClass: groupOfNames
+objectClass: posixGroup
+objectClass: top
+cn: Users
+gidNumber: 1000
+
+
+dn: cn=default,ou=profile,dc=example,dc=com
+objectClass: DUAConfigProfile
+objectClass: top
+cn: default
+credentialLevel: proxy
+defaultSearchBase: dc=example,dc=com
+defaultSearchScope: one
+defaultServerList: linux1.example.com:1389
+followReferrals: TRUE
+profileTTL: 43200
+searchTimeLimit: 30
+
+dn: cn=proxyagent,ou=profile,dc=example,dc=com
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: proxyagent
+sn: proxyagent
+userPassword: secret
+
+dn: cn=testprofile,ou=profile,dc=example,dc=com
+objectClass: DUAConfigProfile
+objectClass: top
+cn: testprofile
+authenticationMethod: simple
+credentialLevel: proxy
+defaultSearchBase: dc=example,dc=com
+defaultSearchScope: one
+defaultServerList: linux1.example.com:1389
+followReferrals: FALSE
+serviceSearchDescriptor: group: ou=Groups,dc=example,dc=com
+serviceSearchDescriptor: passwd: ou=People,dc=example,dc=com
+serviceSearchDescriptor: shadow: ou=People,dc=example,dc=com
+

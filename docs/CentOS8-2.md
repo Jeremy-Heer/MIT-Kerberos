@@ -38,3 +38,4 @@
     - As root: `firewall-cmd --add-service=kadmin --permanent`
     - As root: `systemctl restart firewalld.service`
     - As root: `systemctl enable firewalld.service`
+1. The /etc/hosts should include entrys for each client, KDC Master and KDC replicas
