@@ -23,4 +23,6 @@
 
 ## Replica KDCs
 1. Complte the Basic KDC setup above
-1. 
+
+## KAdmin
+* It seems this is needed for remote kadmin operation `kadmin:  addprinc kadmin/<FQDN of KDC>`

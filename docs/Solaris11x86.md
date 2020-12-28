@@ -17,7 +17,7 @@
     * `svcs ldap/client`
 
 * Assuming you have a working LDAP server with [RFC207Bis Schema](https://ldapwiki.com/wiki/SchemaRFC2307Bis)
-* And a sample LDAP structrue like [THIS](samples/BasicLDAP.ldif)
+* And a sample LDAP structrue like [THIS](../samples/BasicLDAP.ldif)
 
 1. Backup current nsswitch.conf
     1. cp /etc/nsswitch.conf /etc/nsswitch.conf.back

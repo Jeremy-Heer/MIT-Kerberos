@@ -1,0 +1,8 @@
+REALM HEER.NET
+KDC linux1.heer.net
+ADMIN root
+DNSLOOKUP none
+KDCVENDOR mit
+RMAP heer.net
+FQDN heer.net
+MAS linux1.heer.net

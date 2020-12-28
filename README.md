@@ -1,5 +1,22 @@
 # MIT-Kerberos + LDAP
 
+## Environment
+
+### Servers
+| Server Name    | Description | OS | IP |
+| -------------- | ----------- | -- | -- |
+| NETWORK1       | DNS  | Windows Server 2019 | 10.1.1.1 |
+| KDCLDAP1       | KDC / LDAP  | Oracle Linux | 10.1.1.2 |
+| LINUNX1        | Linux Client | Oracle Linux | 10.1.1.10 |
+| SOLARIS1       | Solaris Client | Solaris 11 x86 | 10.1.1.11 |
+
+* DNS Name: `krbtest.com`
+* REALM: `KRBTEST.COM`
+
+### LDAP Directory Structure
+
+* `dc=krbtest,dc=com`
+
 ## Additinal clients
 
 1. configure or disable SELinux
