@@ -4,5 +4,6 @@
 
 1. `openssl s_client localhost:1636|openssl x509 -out /tmp/ldap2.der -outform der`
 1. `openssl x509 -out /tmp/ldap2.crt -outform pem -text -in /tmp/ldap2.der -inform der`
+2. add `TLS_REQCERT     allow` to /etc/openldap/ldap.conf
 
 ### Refrence the ldap2.crt in sssd.conf and store in /etc/openldap/certs
